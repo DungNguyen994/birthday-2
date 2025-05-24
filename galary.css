@@ -213,7 +213,7 @@ p {
 }
 
 .number {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 3px;
   animation: pulse 1.2s infinite ease-in-out;
@@ -231,7 +231,7 @@ p {
 #countdown-heading {
   text-align: center;
   font-family: "Dancing Script", cursive, "Segoe UI", sans-serif;
-  font-size: 2.8rem;
+  font-size: 1.5rem;
   color: #ff77e9;
   text-shadow: 0 0 10px #ff66cc, 0 0 15px #ff99cc;
   margin-top: 30px;
@@ -256,6 +256,32 @@ p {
   color: #ff66cc;
   margin-bottom: 20px;
   animation: fadeIn 2s ease-in;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#birthday-date {
+  font-family: "Dancing Script", cursive;
+  font-size: 28px;
+  text-align: center;
+  color: #ff69b4;
+  margin-top: 20px;
+  animation: fadeIn 3s ease-in-out;
+  background: linear-gradient(to right, #ffe0f0, #ffe6f7);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+  display: inline-block;
 }
 
 /* Optional fade-in animation */
