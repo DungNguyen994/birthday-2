@@ -186,7 +186,7 @@ p {
   flex-direction: row; /* stack vertically */
   align-items: center; /* center horizontally */
   gap: 20px;
-  margin: 30px auto 50px;
+  margin: 10px auto 10px;
   max-height: 300px;
   font-family: "Dancing Script", cursive, "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
@@ -201,7 +201,7 @@ p {
   background: linear-gradient(135deg, #ff6a00, #ee0979);
   border-radius: 20px;
   padding: 15px 25px;
-  width: 8%; /* fill container width */
+  width: 6%; /* fill container width */
   box-shadow: 0 0 18px rgba(238, 9, 121, 0.8);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
@@ -213,7 +213,7 @@ p {
 }
 
 .number {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 3px;
   animation: pulse 1.2s infinite ease-in-out;
@@ -272,10 +272,10 @@ p {
 
 #birthday-date {
   font-family: "Dancing Script", cursive;
-  font-size: 28px;
+  font-size: 20px;
   text-align: center;
   color: #ff69b4;
-  margin-top: 20px;
+  margin-top: 10px;
   animation: fadeIn 3s ease-in-out;
   background: linear-gradient(to right, #ffe0f0, #ffe6f7);
   padding: 12px 20px;
