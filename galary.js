@@ -416,7 +416,7 @@ updateCountdown(); // Initial call
 const audio = document.getElementById("birthday-audio");
 let played = false;
 
-document.body.addEventListener("mouseenter", () => {
+document.body.addEventListener("mousemove", () => {
   if (!played) {
     audio.play().catch((err) => {
       console.log("Autoplay blocked or error:", err);
