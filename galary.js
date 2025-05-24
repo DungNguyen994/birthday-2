@@ -413,14 +413,22 @@ function updateCountdown() {
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call
 
-const audio = document.getElementById("birthday-audio");
 let played = false;
+const audio = document.getElementById("birthday-audio");
 
-document.body.addEventListener("mousemove", () => {
+function tryPlayAudio() {
   if (!played) {
     audio.play().catch((err) => {
       console.log("Autoplay blocked or error:", err);
     });
     played = true;
+
+    // Optional: Remove listeners after playing
+    document.body.removeEventListener("click", tryPlayAudio);
+    document.body.removeEventListener("touchstart", tryPlayAudio);
   }
-});
+}
+
+// Add both mobile and desktop-compatible listeners
+document.body.addEventListener("click", tryPlayAudio);
+document.body.addEventListener("touchstart", tryPlayAudio);
