@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/jpg" href="/images/11.jpg" />
-    <meta property="og:title" content="Michelle's Birthday Celebration 🎉" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Truc My's Birthday Celebration 🎉" />
     <meta
       property="og:description"
-      content="Join us to celebrate Michelle's special day on 03/06/2023 at King BBQ, GO Di An!"
+      content="Join us to celebrate Truc My's special day on 03/06/2023 at King BBQ, GO Di An!"
     />
     <meta
       property="og:image"
@@ -17,21 +18,55 @@
       property="og:url"
       content="https://dungnguyen994.github.io/birthday-2/"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="vi_VN" />
-    <title>Happy Birthday Michelle!</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <title>Truc My Birthday</title>
+    <link rel="stylesheet" href="galary.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <canvas id="c"></canvas>
-    <button
-      id="galleryBtn"
-      class="visit-gallery-btn"
-      onclick="window.location.href='galary.html'"
-    >
-      🎉 Let's party 🎈
-    </button>
-    <script src="app.js"></script>
+    <h1 id="countdown-heading">Countdown to Truc My's Birthday 🎉</h1>
+    <div id="countdown">
+      <div class="countdown-item">
+        <span id="days" class="number">00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span id="hours" class="number">00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes" class="number">00</span>
+        <span class="label">Mins</span>
+      </div>
+
+      <div class="countdown-item">
+        <span id="seconds" class="number">00</span>
+        <span class="label">Secs</span>
+      </div>
+    </div>
+    <p id="birthday-date">🎂 Truc My was born on 03/06/2023</p>
+    <div id="drag-container">
+      <div id="spin-container">
+        <img src="./images/1.jpg" alt="" />
+        <img src="./images/2.jpg" alt="" />
+        <img src="./images/3.jpg" alt="" />
+        <img src="./images/4.jpg" alt="" />
+        <img src="./images/5.jpg" alt="" />
+        <img src="./images/6.jpg" alt="" />
+        <img src="./images/7.jpg" alt="" />
+        <img src="./images/8.jpg" alt="" />
+        <img src="./images/9.jpg" alt="" />
+        <img src="./images/10.jpg" alt="" />
+        <p>Happy Birthday Truc My</p>
+      </div>
+      <div id="ground"></div>
+    </div>
+    <p id="party-location">📍 King BBQ, GO Di An, Binh Duong</p>
+    <audio id="birthday-audio" src="music.mp3" preload="auto"></audio>
+    <script src="galary.js"></script>
   </body>
 </html>
