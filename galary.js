@@ -422,15 +422,15 @@ setTimeout(() => {
   });
 }, 100);
 
-// function tryPlayAudio() {
-//   if (!played) {
-//     audio.play().catch((err) => {
-//       console.log("Autoplay blocked or error:", err);
-//     });
-//     played = true;
-//   }
-// }
+function tryPlayAudio() {
+  if (!played) {
+    audio.play().catch((err) => {
+      console.log("Autoplay blocked or error:", err);
+    });
+    played = true;
+  }
+}
 
-// // Add both mobile and desktop-compatible listeners
-// document.body.addEventListener("click", tryPlayAudio);
-// document.body.addEventListener("touchstart", tryPlayAudio);
+// Add both mobile and desktop-compatible listeners
+document.body.addEventListener("click", tryPlayAudio);
+document.body.addEventListener("touchstart", tryPlayAudio);
