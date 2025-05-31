@@ -281,15 +281,15 @@ void main(){
 
 //************** Utility functions **************
 
-window.addEventListener("resize", onWindowResize, false);
+// window.addEventListener("resize", onWindowResize, false);
 
-function onWindowResize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  gl.viewport(0, 0, canvas.width, canvas.height);
-  gl.uniform1f(widthHandle, window.innerWidth);
-  gl.uniform1f(heightHandle, window.innerHeight);
-}
+// function onWindowResize() {
+//   canvas.width = window.innerWidth;
+//   canvas.height = window.innerHeight;
+//   gl.viewport(0, 0, canvas.width, canvas.height);
+//   gl.uniform1f(widthHandle, window.innerWidth);
+//   gl.uniform1f(heightHandle, window.innerHeight);
+// }
 
 //Compile shader and combine with source
 function compileShader(shaderSource, shaderType) {
