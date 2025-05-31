@@ -307,10 +307,20 @@ p {
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 9999; /* Make sure it’s on top of everything */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  box-shadow: 0 2px 8px pink;
+  transition: transform 0.3s;
 }
 
-.play-btn:hover {
-  background-color: pink;
+.play-btn.spin {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

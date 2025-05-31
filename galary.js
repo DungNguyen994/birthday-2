@@ -409,6 +409,7 @@ function updateCountdown() {
 // Update every second
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call
+const playButton = document.getElementById("playButton");
 
 document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("birthday-audio");
@@ -420,6 +421,7 @@ document.addEventListener("DOMContentLoaded", function () {
     audio
       .play()
       .then(() => {
+        playButton.classList.add("spin");
         console.log("Audio played successfully.");
       })
       .catch((err) => {
@@ -438,9 +440,28 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("pointerdown", playAudioOnGesture, { once: true });
 });
 
-document.getElementById("playButton").addEventListener("click", () => {
-  const audio = document.getElementById("birthday-audio");
-  audio.play().catch((err) => {
-    console.warn("Play failed:", err);
-  });
+const audio = document.getElementById("birthday-audio");
+
+let isPlaying = false;
+
+playButton.addEventListener("click", () => {
+  if (!isPlaying) {
+    audio
+      .play()
+      .then(() => {
+        isPlaying = true;
+        playButton.classList.add("spin");
+      })
+      .catch((err) => console.warn("Play failed:", err));
+  } else {
+    audio.pause();
+    isPlaying = false;
+    playButton.classList.remove("spin");
+  }
+});
+
+// Optional: stop spinning if music ends
+audio.addEventListener("ended", () => {
+  isPlaying = false;
+  playButton.classList.remove("spin");
 });
