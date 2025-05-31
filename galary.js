@@ -435,4 +435,5 @@ document.addEventListener("DOMContentLoaded", function () {
   // Attach gesture listeners
   document.body.addEventListener("click", playAudioOnGesture);
   document.body.addEventListener("touchstart", playAudioOnGesture);
+  document.addEventListener("pointerdown", playAudioOnGesture, { once: true });
 });
