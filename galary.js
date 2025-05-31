@@ -429,30 +429,31 @@ updateCountdown(); // Initial call
 //   document.addEventListener("click", tryPlayAudio);
 //   document.addEventListener("touchstart", tryPlayAudio);
 // });
-
 document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("birthday-audio");
+  let played = false;
 
-  function playAudioOnGesture() {
-    if (audio) {
-      audio
-        .play()
-        .then(() => {
-          console.log("Audio played successfully.");
-        })
-        .catch((err) => {
-          console.error("Autoplay blocked or failed:", err);
-        });
+  function playAudioOnGesture(event) {
+    if (played || !audio) return;
 
-      // Remove the listener after first gesture
-      document.body.removeEventListener("mousemove", playAudioOnGesture);
-      document.body.removeEventListener("click", playAudioOnGesture);
-      document.body.removeEventListener("touchstart", playAudioOnGesture);
-    }
+    // This call is directly inside the gesture callback
+    audio
+      .play()
+      .then(() => {
+        console.log("Audio played successfully.");
+      })
+      .catch((err) => {
+        console.error("Autoplay blocked or failed:", err);
+      });
+
+    played = true;
+
+    // Clean up listeners
+    document.body.removeEventListener("click", playAudioOnGesture);
+    document.body.removeEventListener("touchstart", playAudioOnGesture);
   }
 
-  // Add the gesture-based event listener
-  document.body.addEventListener("mousemove", playAudioOnGesture);
+  // Add trusted gesture listeners (DO NOT use mousemove)
   document.body.addEventListener("click", playAudioOnGesture, { once: true });
   document.body.addEventListener("touchstart", playAudioOnGesture, {
     once: true,
