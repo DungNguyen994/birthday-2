@@ -429,33 +429,32 @@ updateCountdown(); // Initial call
 //   document.addEventListener("click", tryPlayAudio);
 //   document.addEventListener("touchstart", tryPlayAudio);
 // });
+
 document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("birthday-audio");
+  const overlay = document.getElementById("tap-to-play-overlay");
   let played = false;
 
-  function playAudioOnGesture(event) {
+  function playAudioOnGesture() {
     if (played || !audio) return;
 
-    // This call is directly inside the gesture callback
     audio
       .play()
       .then(() => {
         console.log("Audio played successfully.");
+        overlay.classList.add("hidden");
       })
       .catch((err) => {
-        console.error("Autoplay blocked or failed:", err);
+        console.error("Play failed:", err);
       });
 
     played = true;
 
-    // Clean up listeners
     document.body.removeEventListener("click", playAudioOnGesture);
     document.body.removeEventListener("touchstart", playAudioOnGesture);
   }
 
-  // Add trusted gesture listeners (DO NOT use mousemove)
-  document.body.addEventListener("click", playAudioOnGesture, { once: true });
-  document.body.addEventListener("touchstart", playAudioOnGesture, {
-    once: true,
-  });
+  // Attach gesture listeners
+  document.body.addEventListener("click", playAudioOnGesture);
+  document.body.addEventListener("touchstart", playAudioOnGesture);
 });
