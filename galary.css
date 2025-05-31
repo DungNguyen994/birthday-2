@@ -299,7 +299,7 @@ p {
 .play-btn {
   position: fixed;
   top: 5px;
-  right: 20px;
+  right: 5px;
   background-color: pink;
   border: none;
   color: white;
