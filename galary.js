@@ -437,3 +437,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.addEventListener("touchstart", playAudioOnGesture);
   document.addEventListener("pointerdown", playAudioOnGesture, { once: true });
 });
+
+document.getElementById("playButton").addEventListener("click", () => {
+  const audio = document.getElementById("birthday-audio");
+  audio.play().catch((err) => {
+    console.warn("Play failed:", err);
+  });
+});
