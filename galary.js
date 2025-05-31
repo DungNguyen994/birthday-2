@@ -413,24 +413,47 @@ function updateCountdown() {
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call
 
-let played = false;
-const audio = document.getElementById("birthday-audio");
+// let played = false;
+// const audio = document.getElementById("birthday-audio");
 
-setTimeout(() => {
-  document.body.addEventListener("mousemove", function () {
-    audio.play();
-  });
-}, 100);
+// setTimeout(() => {
+//   document.body.addEventListener("mousemove", function () {
+//     audio.play();
+//   });
+// }, 100);
 
-function tryPlayAudio() {
-  if (!played) {
-    audio.play().catch((err) => {
-      console.log("Autoplay blocked or error:", err);
-    });
-    played = true;
+// function tryPlayAudio() {
+//   if (!played) {
+//     audio.play().catch((err) => {
+//       console.log("Autoplay blocked or error:", err);
+//     });
+//     played = true;
+//   }
+// }
+
+// // Add both mobile and desktop-compatible listeners
+// document.body.addEventListener("click", tryPlayAudio);
+// document.body.addEventListener("touchstart", tryPlayAudio);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const audio = document.getElementById("birthday-audio");
+
+  function playAudioOnGesture() {
+    if (audio) {
+      audio
+        .play()
+        .then(() => {
+          console.log("Audio played successfully.");
+        })
+        .catch((err) => {
+          console.error("Autoplay blocked or failed:", err);
+        });
+
+      // Remove the listener after first gesture
+      document.body.removeEventListener("mousemove", playAudioOnGesture);
+    }
   }
-}
 
-// Add both mobile and desktop-compatible listeners
-document.body.addEventListener("click", tryPlayAudio);
-document.body.addEventListener("touchstart", tryPlayAudio);
+  // Add the gesture-based event listener
+  document.body.addEventListener("mousemove", playAudioOnGesture);
+});
