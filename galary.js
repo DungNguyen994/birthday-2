@@ -416,13 +416,6 @@ updateCountdown(); // Initial call
 document.addEventListener("DOMContentLoaded", function () {
   let played = false;
   const audio = document.getElementById("birthday-audio");
-
-  setTimeout(() => {
-    document.body.addEventListener("mousemove", function () {
-      audio.play();
-    });
-  }, 100);
-
   function tryPlayAudio() {
     if (!played) {
       audio.play().catch((err) => {
@@ -433,8 +426,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Add both mobile and desktop-compatible listeners
-  document.body.addEventListener("click", tryPlayAudio);
-  document.body.addEventListener("touchstart", tryPlayAudio);
+  document.addEventListener("click", tryPlayAudio);
+  document.addEventListener("touchstart", tryPlayAudio);
 });
 
 // document.addEventListener("DOMContentLoaded", function () {
