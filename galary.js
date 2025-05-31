@@ -416,19 +416,21 @@ updateCountdown(); // Initial call
 let played = false;
 const audio = document.getElementById("birthday-audio");
 
-function tryPlayAudio() {
-  if (!played) {
-    audio.play().catch((err) => {
-      console.log("Autoplay blocked or error:", err);
-    });
-    played = true;
+setTimeout(() => {
+  document.body.addEventListener("mousemove", function () {
+    audio.play();
+  });
+}, 100);
 
-    // Optional: Remove listeners after playing
-    document.body.removeEventListener("click", tryPlayAudio);
-    document.body.removeEventListener("touchstart", tryPlayAudio);
-  }
-}
+// function tryPlayAudio() {
+//   if (!played) {
+//     audio.play().catch((err) => {
+//       console.log("Autoplay blocked or error:", err);
+//     });
+//     played = true;
+//   }
+// }
 
-// Add both mobile and desktop-compatible listeners
-document.body.addEventListener("click", tryPlayAudio);
-document.body.addEventListener("touchstart", tryPlayAudio);
+// // Add both mobile and desktop-compatible listeners
+// document.body.addEventListener("click", tryPlayAudio);
+// document.body.addEventListener("touchstart", tryPlayAudio);
