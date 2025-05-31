@@ -446,13 +446,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Remove the listener after first gesture
       document.body.removeEventListener("mousemove", playAudioOnGesture);
-      document.body.removeEventListener("click", tryPlayAudio);
-      document.body.removeEventListener("touchstart", tryPlayAudio);
+      document.body.removeEventListener("click", playAudioOnGesture);
+      document.body.removeEventListener("touchstart", playAudioOnGesture);
     }
   }
 
   // Add the gesture-based event listener
   document.body.addEventListener("mousemove", playAudioOnGesture);
-  document.body.addEventListener("click", tryPlayAudio, { once: true });
-  document.body.addEventListener("touchstart", tryPlayAudio, { once: true });
+  document.body.addEventListener("click", playAudioOnGesture, { once: true });
+  document.body.addEventListener("touchstart", playAudioOnGesture, {
+    once: true,
+  });
 });
