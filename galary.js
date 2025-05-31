@@ -413,26 +413,8 @@ function updateCountdown() {
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   let played = false;
-//   const audio = document.getElementById("birthday-audio");
-//   function tryPlayAudio() {
-//     if (!played) {
-//       audio.play().catch((err) => {
-//         console.log("Autoplay blocked or error:", err);
-//       });
-//       played = true;
-//     }
-//   }
-
-//   // Add both mobile and desktop-compatible listeners
-//   document.addEventListener("click", tryPlayAudio);
-//   document.addEventListener("touchstart", tryPlayAudio);
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("birthday-audio");
-  const overlay = document.getElementById("tap-to-play-overlay");
   let played = false;
 
   function playAudioOnGesture() {
@@ -442,7 +424,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .play()
       .then(() => {
         console.log("Audio played successfully.");
-        overlay.classList.add("hidden");
       })
       .catch((err) => {
         console.error("Play failed:", err);
