@@ -374,7 +374,7 @@ function draw() {
 
 draw();
 // Set your target date here:
-const countdownDate = new Date("2025-06-03").getTime();
+const countdownDate = new Date("2025-06-03T18:00:00").getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
